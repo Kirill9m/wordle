@@ -25,13 +25,13 @@ describe("checkWord()", () => {
   });
 
   it("If the words are not the same, should check the char positions and place the correct answer in result", () => {
-    const output = checkWord('worms', 'marws');
+    const output = checkWord('CYCLA', 'HALLÅ');
     expect(output).toEqual([
-      {letter: 'w', result: 'misplaced'},
-      {letter: 'o', result: 'incorrect'},
-      {letter: 'r', result: 'correct'},
-      {letter: 'm', result: 'misplaced'},
-      {letter: 's', result: 'correct'}
+      {letter: 'c', result: 'incorrect'},
+      {letter: 'y', result: 'incorrect'},
+      {letter: 'c', result: 'incorrect'},
+      {letter: 'l', result: 'correct'},
+      {letter: 'a', result: 'misplaced'}
     ]);
   });
 });
