@@ -19,9 +19,12 @@ loop(2-3-4)
  * 'correct': Correct position in the other word.
  */
 export function checkWord(guessed, right){
+  const word = guessed.toLowerCase().split('');
+
   if(guessed === right){
     return true;
   } else if(guessed !== right){
-    return {}
+     const wordObject = word.map(letter => ({ letter }));
+    return  wordObject;
   }
 }

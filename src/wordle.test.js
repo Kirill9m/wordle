@@ -14,8 +14,20 @@ describe("checkWord()", () => {
     expect(output).toEqual(true);
   });
 
-  it("should return an object if word is not a same", () => {
+  it("if the words are not the same should return any array", () => {
     const output = checkWord('Worms', 'Worm');
-    expect(output).toEqual({});
+    expect(output).toEqual(expect.any(Array));
   });
+
+  it("If the words are not the same, it should split the word into characters and store them in an object as letters and convert them to lowercase", () => {
+    const output = checkWord('Sword', 'Worms');
+    expect(output).toEqual([
+      {letter: 's'},
+      {letter: 'w'},
+      {letter: 'o'},
+      {letter: 'r'},
+      {letter: 'd'}
+    ]);
+  });
+
 });
