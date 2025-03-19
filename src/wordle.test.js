@@ -1,6 +1,9 @@
 import { checkWord } from "./wordle";
+import { describe, expect, it } from "@jest/globals";
 
-test('should return object with specific properties', () => {
-  let word = checkWord('CYCLA', 'HALLÅ');
-  expect(word).toBe(1);
+describe("checkWord()", () => {
+  it("should return true if word is correct", () => {
+    const output = checkWord('Worms', 'Worms');
+    expect(output).toEqual(true);
+  });
 });

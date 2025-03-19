@@ -19,5 +19,7 @@ loop(2-3-4)
  * 'correct': Correct position in the other word.
  */
 export function checkWord(guessed, right){
-  return 1;
+  if(guessed === right){
+    return true;
+  }
 }
