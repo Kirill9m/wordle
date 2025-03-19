@@ -1,8 +1,9 @@
 /*
+Woordle game
 1. The algorithm chooses a word.
 loop(2-3-4)
 2. The player writes a word by guessing.
-3. If true, the player guessed the right word and returns 1.
+3. If true, the player guessed the right word and returns true.
 4. If false, the algorithm fills in the characters that the right word contains.
 */
 

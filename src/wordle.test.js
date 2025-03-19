@@ -2,10 +2,10 @@ import { checkWord } from "./wordle";
 import { describe, expect, it } from "@jest/globals";
 /*
   The plan is:
-    Check if the words match
+    Check if the words match(lowercase)
     if not
-      Verify that we receive an array
-      array has the char as orbjects and correct properties
+      Verify that we receive an array that splits to chars
+      then array has the char as orbjects and correct properties
 */
 
 describe("checkWord()", () => {
