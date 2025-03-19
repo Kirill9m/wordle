@@ -1,5 +1,5 @@
 /*
-1. The algorithm chooses a word (5 characters).
+1. The algorithm chooses a word.
 loop(2-3-4)
 2. The player writes a word by guessing.
 3. If true, the player guessed the right word and returns 1.
@@ -21,5 +21,7 @@ loop(2-3-4)
 export function checkWord(guessed, right){
   if(guessed === right){
     return true;
+  } else if(guessed !== right){
+    return {}
   }
 }
