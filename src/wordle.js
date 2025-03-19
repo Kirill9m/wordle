@@ -6,25 +6,34 @@ loop(2-3-4)
 4. If false, the algorithm fills in the characters that the right word contains.
 */
 
-
 /**
  *  @description Checks which characters match and their positions
- * 
+ *
  * Returns array(with two attributes letter and result) with object, one for each character in the same position as in the guessed word.
- * 
+ *
  * 'incorrect': Not present in the other word.
- * 
+ *
  * 'misplaced': Present in the other word but in a different position.
- * 
+ *
  * 'correct': Correct position in the other word.
  */
-export function checkWord(guessed, right){
-  const word = guessed.toLowerCase().split('');
+export function checkWord(guessed, right) {
+  const word = guessed.toLowerCase().split("");
+  const rightWord = right.toLowerCase().split("");
 
-  if(guessed === right){
+  if (word.join("") === rightWord.join("")) {
     return true;
-  } else if(guessed !== right){
-     const wordObject = word.map(letter => ({ letter }));
-    return  wordObject;
+  } else if (guessed !== right) {
+    const wordObject = word.map((letter, index) => {
+        if(letter === rightWord[index]){
+          return { letter, result: 'correct' };
+        }else if(rightWord.includes(letter)){
+          return { letter, result: 'misplaced' };
+        }else {
+          return { letter, result: 'incorrect' };
+        }
+      }
+    );
+    return wordObject;
   }
 }
