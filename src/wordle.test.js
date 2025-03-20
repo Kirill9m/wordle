@@ -1,11 +1,17 @@
-import { checkWord } from "./wordle";
+import { checkWord, chooseWord } from "./wordle";
 import { describe, expect, it } from "@jest/globals";
 /*
-  The plan is:
+  The plan is(TDD word check):
     Check if the words match(lowercase)
     if not
       Verify that we receive an array that splits to chars
       then array has the char as orbjects and correct properties
+  Next step(random word):
+    Check if functions returns a word from list
+    Check if word has choosen length
+    Check if word is unique by indicator
+    Returns false if word is not found
+
 */
 
 describe("checkWord()", () => {
@@ -33,5 +39,13 @@ describe("checkWord()", () => {
       {letter: 'l', result: 'correct'},
       {letter: 'a', result: 'misplaced'}
     ]);
+  });
+});
+
+describe("chooseWord()", () => {
+  it("should return a string from list", () => {
+    const list = ['sword', 'fish', 'axe']
+    const output = chooseWord(list, 4, true);
+    expect(list.includes(output)).toBe(true); 
   });
 });

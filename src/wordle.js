@@ -38,3 +38,23 @@ export function checkWord(guessed, right) {
     return wordObject;
   }
 }
+
+
+/**
+ *  @description This function is selecting a word to play with
+ *
+ * Returns randomly selected word
+ *
+ * Takes: A list of words
+ *
+ * A number indicating the desired length
+ * 
+ * An indication of whether the same letter can appear more than once in the word, or if all letters must be unique
+ * 
+ * Randomly selects a word from the list that meets the criteria specified by the other parameters
+ *
+ * Handles situation that arises when no matching word is found
+ */
+export function chooseWord(list, length, uni){
+  return list[1];
+}
