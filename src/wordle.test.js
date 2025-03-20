@@ -7,10 +7,11 @@ import { describe, expect, it } from "@jest/globals";
       Verify that we receive an array that splits to chars
       then array has the char as orbjects and correct properties
   Next step(random word):
-    Check if functions returns a word from list
-    Check if word has choosen length
-    Check if word is unique by indicator
-    Returns false if word is not found
+    Check if the function returns a word from the list
+    Check if the word is randomly picked
+    Check if the word has the chosen length
+    Check if the word is unique based on the indicator
+    Return false if a word is not found
 
 */
 
@@ -47,5 +48,14 @@ describe("chooseWord()", () => {
     const list = ['sword', 'fish', 'axe']
     const output = chooseWord(list, 4, true);
     expect(list.includes(output)).toBe(true); 
+  });
+
+  it("check if the function returns different strings", () => {
+    const list = ['sword', 'fish', 'axe']
+    const wordList = new Set();
+    for(let i = 0; i < 10; i++){
+      wordList.add(chooseWord(list, 4, true));
+    }
+    expect(wordList.size).toBeGreaterThan(1); 
   });
 });
