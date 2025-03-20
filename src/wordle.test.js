@@ -51,11 +51,20 @@ describe("chooseWord()", () => {
   });
 
   it("check if the function returns different strings", () => {
-    const list = ['sword', 'fish', 'axe']
+    const list = ['sword', 'fish', 'axe', 'math']
     const wordList = new Set();
     for(let i = 0; i < 10; i++){
       wordList.add(chooseWord(list, 4, true));
     }
     expect(wordList.size).toBeGreaterThan(1); 
+  });
+
+  it("should return a string from the list with the chosen length", () => {
+    const list = ['sword', 'fish', 'axe']
+    const wordList = new Set();
+    for(let i = 0; i < 10; i++) {
+      wordList.add(chooseWord(list, 4, true));
+    }
+    expect(wordList.size).toEqual(1);
   });
 });

@@ -56,6 +56,7 @@ export function checkWord(guessed, right) {
  * Handles situation that arises when no matching word is found
  */
 export function chooseWord(list, length, uni){
-  const number = Math.floor(Math.random() * list.length);
-  return list[number];
+  const specifiedString = list.filter(word => word.length === length);
+  const number = Math.floor(Math.random() * specifiedString.length);
+  return specifiedString[number];
 }
