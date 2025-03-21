@@ -2,17 +2,16 @@ import { checkWord, chooseWord } from "./wordle";
 import { describe, expect, it } from "@jest/globals";
 /*
   The plan is(TDD word check):
-    Check if the words match(lowercase)
+    Check if the words match(lowercase) & return true
     if not
-      Verify that we receive an array that splits to chars
-      then array has the char as orbjects and correct properties
-  Next step(random word):
+      Verify if we receive an array that splits into characters
+      Verify that the array has characters as objects with correct properties
+  Next step(TDD Random word):
     Check if the function returns a word from the list
     Check if the word is randomly picked
     Check if the word has the chosen length
-    Return false if a word is not found
+    Return false if no word is found
     Check if the word is unique based on the indicator
-
 */
 
 describe("checkWord()", () => {
