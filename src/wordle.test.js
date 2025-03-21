@@ -71,7 +71,12 @@ describe("chooseWord()", () => {
   it("should return false if a word is not found", () => {
     const list = ['sword', 'fish', 'axe']
     const output = chooseWord(list, 10, true);
+    expect(output).toBe(false);
+  });
 
+  it("should return an unique word based on the indicator", () => {
+    const list = ['fish', 'axe', 'apple']
+    const output = chooseWord(list, 5, true);
     expect(output).toBe(false);
   });
 });

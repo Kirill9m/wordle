@@ -26,19 +26,17 @@ export function checkWord(guessed, right) {
     return true;
   } else if (guessed !== right) {
     const wordObject = word.map((letter, index) => {
-        if(letter === rightWord[index]){
-          return { letter, result: 'correct' };
-        }else if(rightWord.includes(letter)){
-          return { letter, result: 'misplaced' };
-        }else {
-          return { letter, result: 'incorrect' };
-        }
+      if (letter === rightWord[index]) {
+        return { letter, result: "correct" };
+      } else if (rightWord.includes(letter)) {
+        return { letter, result: "misplaced" };
+      } else {
+        return { letter, result: "incorrect" };
       }
-    );
+    });
     return wordObject;
   }
 }
-
 
 /**
  *  @description This function is selecting a word to play with
@@ -48,18 +46,34 @@ export function checkWord(guessed, right) {
  * Takes: A list of words
  *
  * A number indicating the desired length
- * 
+ *
  * An indication of whether the same letter can appear more than once in the word, or if all letters must be unique
- * 
+ *
  * Randomly selects a word from the list that meets the criteria specified by the other parameters
  *
  * Handles situation that arises when no matching word is found
  */
-export function chooseWord(list, length, uni){
-  const specifiedString = list.filter(word => word.length === length);
-  const number = Math.floor(Math.random() * specifiedString.length);
-  if(specifiedString[number] !== undefined){
-    return specifiedString[number];
-  }else
-    return false;
+export function chooseWord(list, length, uni) {
+  const wordChooser = (array) => {
+    const number = Math.floor(Math.random() * array.length);
+    if (array[number] !== undefined) {
+      return array[number];
+    } else {
+      return false;
+    }
+  };
+
+  const specifiedString = list.filter((word) => word.length === length);
+
+  if (uni) {
+    const chars = new Set();
+    const uniqueArray = specifiedString.filter((word) => {
+      for (let i = 0; i < word.length; i++) {
+        chars.add(word[i]) === word.length;
+      }
+      return chars.size === word.length;
+    });
+    return wordChooser(uniqueArray);
+  }
+  return wordChooser(specifiedString);
 }
