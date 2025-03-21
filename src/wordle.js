@@ -54,7 +54,7 @@ export function checkWord(guessed, right) {
  * Handles situation that arises when no matching word is found
  */
 export function chooseWord(list, length, uni) {
-  const wordChooser = (array) => {
+  const wordRandomiser = (array) => {
     const number = Math.floor(Math.random() * array.length);
     if (array[number] !== undefined) {
       return array[number];
@@ -66,14 +66,14 @@ export function chooseWord(list, length, uni) {
   const specifiedString = list.filter((word) => word.length === length);
 
   if (uni) {
-    const chars = new Set();
     const uniqueArray = specifiedString.filter((word) => {
+      const chars = new Set();
       for (let i = 0; i < word.length; i++) {
-        chars.add(word[i]) === word.length;
+        chars.add(word[i]);
       }
       return chars.size === word.length;
     });
-    return wordChooser(uniqueArray);
+    return wordRandomiser(uniqueArray);
   }
-  return wordChooser(specifiedString);
+  return wordRandomiser(specifiedString);
 }
