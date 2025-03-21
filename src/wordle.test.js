@@ -16,65 +16,65 @@ import { describe, expect, it } from "@jest/globals";
 
 describe("checkWord()", () => {
   it("should return true if words are same and lower case", () => {
-    const output = checkWord('Worms', 'worms');
+    const output = checkWord("Worms", "worms");
     expect(output).toEqual(true);
   });
 
   it("if the words are not the same should return any array", () => {
-    const output = checkWord('Worms', 'Worm');
+    const output = checkWord("Worms", "Worm");
     expect(output).toEqual(expect.any(Array));
   });
 
   it("If the words are not the same, should split the word into characters and store it in an object as letters and convert it to lowercase", () => {
-    const output = checkWord('SwЭrd', 'Worms');
-    expect(output[2].letter).toEqual('э');
+    const output = checkWord("SwЭrd", "Worms");
+    expect(output[2].letter).toEqual("э");
   });
 
   it("If the words are not the same, should check the char positions and place the correct answer in result", () => {
-    const output = checkWord('CYCLA', 'HALLÅ');
+    const output = checkWord("CYCLA", "HALLÅ");
     expect(output).toEqual([
-      {letter: 'c', result: 'incorrect'},
-      {letter: 'y', result: 'incorrect'},
-      {letter: 'c', result: 'incorrect'},
-      {letter: 'l', result: 'correct'},
-      {letter: 'a', result: 'misplaced'}
+      { letter: "c", result: "incorrect" },
+      { letter: "y", result: "incorrect" },
+      { letter: "c", result: "incorrect" },
+      { letter: "l", result: "correct" },
+      { letter: "a", result: "misplaced" },
     ]);
   });
 });
 
 describe("chooseWord()", () => {
   it("should return a string from list", () => {
-    const list = ['sword', 'fish', 'axe']
+    const list = ["sword", "fish", "axe"];
     const output = chooseWord(list, 4, true);
-    expect(list.includes(output)).toBe(true); 
+    expect(list.includes(output)).toBe(true);
   });
 
   it("check if the function returns different strings", () => {
-    const list = ['sword', 'fish', 'axe', 'math']
+    const list = ["sword", "fish", "axe", "math"];
     const wordList = new Set();
-    for(let i = 0; i < 10; i++){
+    for (let i = 0; i < 10; i++) {
       wordList.add(chooseWord(list, 4, true));
     }
-    expect(wordList.size).toBeGreaterThan(1); 
+    expect(wordList.size).toBeGreaterThan(1);
   });
 
   it("should return a string from the list with the chosen length", () => {
-    const list = ['sword', 'fish', 'axe']
+    const list = ["sword", "fish", "axe"];
     const wordList = new Set();
-    for(let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       wordList.add(chooseWord(list, 4, true));
     }
     expect(wordList.size).toEqual(1);
   });
 
   it("should return false if a word is not found", () => {
-    const list = ['sword', 'fish', 'axe']
+    const list = ["sword", "fish", "axe"];
     const output = chooseWord(list, 10, true);
     expect(output).toBe(false);
   });
 
   it("should return an unique word based on the indicator", () => {
-    const list = ['fish', 'axe', 'apple']
+    const list = ["fish", "axe", "apple"];
     const output = chooseWord(list, 5, true);
     expect(output).toBe(false);
   });

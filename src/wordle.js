@@ -10,7 +10,7 @@ loop(2-3-4)
 /**
  *  @description Checks which characters match and their positions
  *
- * Returns array(with two attributes letter and result) with object, one for each character in the same position as in the guessed word.
+ *  Returns array(with two attributes letter and result) with object, one for each character in the same position as in the guessed word.
  *
  * 'incorrect': Not present in the other word.
  *
@@ -39,7 +39,7 @@ export function checkWord(guessed, right) {
 }
 
 /**
- *  @description This function is selecting a word to play with
+ * @description This function is selecting a word to play with
  *
  * Returns randomly selected word
  *
