@@ -63,10 +63,10 @@ export function chooseWord(list, length, uni) {
     }
   };
 
-  const specifiedString = list.filter((word) => word.length === length);
+  const specifiedArray = list.filter((word) => word.length === length);
 
   if (uni) {
-    const uniqueArray = specifiedString.filter((word) => {
+    const uniqueArray = specifiedArray.filter((word) => {
       const chars = new Set();
       for (let i = 0; i < word.length; i++) {
         chars.add(word[i]);
@@ -75,5 +75,5 @@ export function chooseWord(list, length, uni) {
     });
     return wordRandomiser(uniqueArray);
   }
-  return wordRandomiser(specifiedString);
+  return wordRandomiser(specifiedArray);
 }
