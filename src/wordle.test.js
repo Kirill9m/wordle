@@ -10,8 +10,8 @@ import { describe, expect, it } from "@jest/globals";
     Check if the function returns a word from the list
     Check if the word is randomly picked
     Check if the word has the chosen length
-    Check if the word is unique based on the indicator
     Return false if a word is not found
+    Check if the word is unique based on the indicator
 
 */
 
@@ -66,5 +66,12 @@ describe("chooseWord()", () => {
       wordList.add(chooseWord(list, 4, true));
     }
     expect(wordList.size).toEqual(1);
+  });
+
+  it("should return false if a word is not found", () => {
+    const list = ['sword', 'fish', 'axe']
+    const output = chooseWord(list, 10, true);
+
+    expect(output).toBe(false);
   });
 });

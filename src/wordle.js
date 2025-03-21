@@ -58,5 +58,8 @@ export function checkWord(guessed, right) {
 export function chooseWord(list, length, uni){
   const specifiedString = list.filter(word => word.length === length);
   const number = Math.floor(Math.random() * specifiedString.length);
-  return specifiedString[number];
+  if(specifiedString[number] !== undefined){
+    return specifiedString[number];
+  }else
+    return false;
 }
