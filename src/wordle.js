@@ -19,8 +19,12 @@ loop(2-3-4)
  * 'correct': Correct position in the other word.
  */
 export function checkWord(guessed, right) {
-  if (typeof guessed !== 'string' || typeof right !== 'string' || guessed.length !== right.length) {
-    throw new Error('Words must be strings of the same length');
+  if (
+    typeof guessed !== "string" ||
+    typeof right !== "string" ||
+    guessed.length !== right.length
+  ) {
+    throw new Error("Words must be strings of the same length");
   }
 
   const word = guessed.toLowerCase().split("");
@@ -58,6 +62,10 @@ export function checkWord(guessed, right) {
  * Handles situation that arises when no matching word is found
  */
 export function chooseWord(list, length, uni) {
+  if (list.length === 0) {
+    throw new Error("The list is empty!");
+  }
+
   const wordRandomiser = (array) => {
     const number = Math.floor(Math.random() * array.length);
     if (array[number] !== undefined) {
