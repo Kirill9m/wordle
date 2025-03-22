@@ -19,6 +19,10 @@ loop(2-3-4)
  * 'correct': Correct position in the other word.
  */
 export function checkWord(guessed, right) {
+  if (typeof guessed !== 'string' || typeof right !== 'string' || guessed.length !== right.length) {
+    throw new Error('Words must be strings of the same length');
+  }
+
   const word = guessed.toLowerCase().split("");
   const rightWord = right.toLowerCase().split("");
 
