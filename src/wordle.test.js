@@ -86,4 +86,9 @@ describe("chooseWord()", () => {
     const output = chooseWord(list, 5, true);
     expect(output).toBe(false);
   });
+
+  it("should return error if list is empty", () => {
+    const list = [];
+    expect(() => chooseWord(list, 4, true)).toThrow("The list is empty!");
+  });
 });
